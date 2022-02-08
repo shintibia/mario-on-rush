@@ -72,7 +72,6 @@ function handleJump (delta) {
 }
 
 function onJump (e) {
-    console.log(e.type)
     if(e.type !== 'click' && e.code !== 'Space' || isJumping) {
         
         return
