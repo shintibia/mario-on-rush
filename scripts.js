@@ -15,7 +15,8 @@ const marioUp = document.querySelector('[data-mario-up]')
 
 setPixeltoWorldScale()
 window.addEventListener('resize', setPixeltoWorldScale)
-document.addEventListener('keydown', handleStart, {once: true})
+window.addEventListener('keydown', handleStart, {once: true})
+window.addEventListener('click', handleStart, {once: true})
 window.addEventListener('DOMContentLoaded', textBlink)
 
 let speedScale
@@ -94,8 +95,9 @@ function handleLose () {
     setCharacterLose()
     setTimeout(() => {
         document.addEventListener('keydown', handleStart, {once:true})
+        document.addEventListener('click', handleStart, {once:true})
         startScreenElem.classList.remove('hide')
-    }, 100)
+    }, 1000)
 }
 
 function setPixeltoWorldScale () {

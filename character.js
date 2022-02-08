@@ -20,7 +20,9 @@ export function setupCharacter () {
     setCustomProperty(characterElem, '--bottom', 7)
     setCustomProperty(characterElem, '--height', 30)
     document.removeEventListener('keydown', onJump)
+    document.removeEventListener('click', onJump)
     document.addEventListener('keydown', onJump)
+    document.addEventListener('click', onJump)
 }
 
 export function updateCharacter (delta, speedScale) {
@@ -63,7 +65,6 @@ function handleJump (delta) {
     if (getCustomProperty(characterElem, '--bottom') <= 0) {
         setCustomProperty(characterElem, '--bottom', 7)
         isJumping = false
-        
     }
     
     marioJump.play()
@@ -71,7 +72,8 @@ function handleJump (delta) {
 }
 
 function onJump (e) {
-    if(e.code !== 'Space' || isJumping) {
+    console.log(e.type)
+    if(e.type !== 'click' && e.code !== 'Space' || isJumping) {
         
         return
     }
