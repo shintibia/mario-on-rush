@@ -16,7 +16,6 @@ const marioUp = document.querySelector('[data-mario-up]')
 setPixeltoWorldScale()
 window.addEventListener('resize', setPixeltoWorldScale)
 window.addEventListener('keydown', handleStart, {once: true})
-window.addEventListener('click', handleStart, {once: true})
 window.addEventListener('DOMContentLoaded', textBlink)
 
 let speedScale

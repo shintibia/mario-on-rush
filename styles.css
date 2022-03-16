@@ -17,6 +17,7 @@ body {
 .world {
     overflow: hidden;
     position: relative;
+    /* max-width: 800px; */
     /* border: 2px solid #000; */
 }
 
@@ -27,16 +28,39 @@ body {
     text-align: center;
 }
 
+.high-score-icon {
+    padding-bottom: 0.5rem;
+}
+
 .high-score-table {
     width: 80vw;
     max-width: 600px;
     background-color: bisque;
 }
 
+
 .high-score-table li{
     display: flex;
     justify-content: space-between;
+}
+
+.high-score-table li p {
     padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.high-score-table li p:first-child {
+    flex: 1;
+    text-align: left;
+}
+
+li p:nth-child(2) {
+    flex: 3;
+}
+
+li p:last-child {
+    flex: 1;
+    text-align: right;
 }
 
 .score {
