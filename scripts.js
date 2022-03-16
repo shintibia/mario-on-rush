@@ -12,11 +12,13 @@ const scoreElem = document.querySelector('[data-score]')
 const startScreenElem = document.querySelector('[data-start-screen]')
 const marioWorld = document.querySelector('[data-mario-world]')
 const marioUp = document.querySelector('[data-mario-up]')
+const audio = document.querySelectorAll('audio')
 
 setPixeltoWorldScale()
 window.addEventListener('resize', setPixeltoWorldScale)
 window.addEventListener('keydown', handleStart, {once: true})
 window.addEventListener('DOMContentLoaded', textBlink)
+window.addEventListener('DOMContentLoaded', setVolume)
 
 let speedScale
 let lastTime
@@ -94,7 +96,7 @@ function handleLose () {
     setCharacterLose()
     setTimeout(() => {
         document.addEventListener('keydown', handleStart, {once:true})
-        document.addEventListener('click', handleStart, {once:true})
+        // document.addEventListener('click', handleStart, {once:true})
         startScreenElem.classList.remove('hide')
     }, 1000)
 }
@@ -110,4 +112,14 @@ function setPixeltoWorldScale () {
 
     worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
     worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
+}
+
+function setVolume () {
+
+    audio.forEach(item => {
+        item.volume = 0.6
+    })
+
+    const jumpAudio = document.querySelector('.mario-jump')
+    jumpAudio.volume = 0.2
 }
